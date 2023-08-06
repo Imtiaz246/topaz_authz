@@ -1,0 +1,28 @@
+{
+    "objects": [
+      {
+        "key": "imtiaz@appscode.com",
+        "type": "user",
+        "displayName": "ImtiazCho",
+        "properties": {
+          "email": "imtiaz@appscode.com",
+          "isAdmin": "true"
+        }
+      },
+      {
+        "key": "rokibul@appscode.com",
+        "type": "user",
+        "displayName": "Rokibul Hasan",
+        "properties": {
+          "email": "rokibul@appscode.com",
+          "isAdmin": "false"
+        }
+      },
+      {
+        "key": "test_org",
+        "type": "group",
+        "displayName": "test_org",
+        "properties": {}
+      }
+    ]
+}

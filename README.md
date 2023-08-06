@@ -129,3 +129,14 @@
    }
    ```
    The `options` map allows the caller to specify the format for retrieving the cartesian product of paths and decisions that are being requested.
+
+# Directory
+1. Topaz directory stores 3 types of entity: 
+  - Objects: Represents the participants in the authorization decision. Some subjects are subjects and some are resources.
+  - Permissions: an action that `subjects (user)` may attempt to perform on objects
+  - Relation: a labeled association between a source object(resource) and a target object(subject)
+1. To help define different kinds of objects and specify the relations between them, topaz directory provides 2 extensible type of types: 
+   - Objects type: defines the kinds of objects (including subjects) that can be created in the directory
+     - Built in objects types: (User, Group, Identity, Application, Resource)
+   - Relations: defines the relations that can be created between directory objects
+        

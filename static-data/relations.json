@@ -1,0 +1,26 @@
+{
+  "relations": [
+    {
+      "subject": {
+        "type": "user",
+        "key": "imtiaz@appscode.com"
+      },
+      "relation": "member",
+      "object": {
+        "type": "group",
+        "key": "test_org"
+      }
+    },
+    {
+      "subject": {
+        "type": "user",
+        "key": "rokibul@appscode.com"
+      },
+      "relation": "member",
+      "object": {
+        "type": "group",
+        "key": "test_org"
+      }
+    }
+  ]
+}
