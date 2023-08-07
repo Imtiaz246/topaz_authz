@@ -135,8 +135,10 @@
   - Objects: Represents the participants in the authorization decision. Some subjects are subjects and some are resources.
   - Permissions: an action that `subjects (user)` may attempt to perform on objects
   - Relation: a labeled association between a source object(resource) and a target object(subject)
-1. To help define different kinds of objects and specify the relations between them, topaz directory provides 2 extensible type of types: 
+2. To help define different kinds of objects and specify the relations between them, topaz directory provides 2 extensible type of types: 
    - Objects type: defines the kinds of objects (including subjects) that can be created in the directory
      - Built in objects types: (User, Group, Identity, Application, Resource)
    - Relations: defines the relations that can be created between directory objects
+3. An object is identified by the combination of `object-type` and `object-key`
+4. A relation type is uniquely identified by the combination of `object-type-name` and `relation-name`
         

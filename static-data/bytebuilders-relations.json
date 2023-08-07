@@ -8,7 +8,7 @@
       "relation": "member",
       "object": {
         "type": "group",
-        "key": "test_org"
+        "key": "appscode-backend-team"
       }
     },
     {
@@ -19,7 +19,19 @@
       "relation": "member",
       "object": {
         "type": "group",
-        "key": "test_org"
+        "key": "appscode-backend-team"
+      }
+    },
+
+    {
+      "subject": {
+        "type": "user",
+        "key": "imtiaz@appscode.com"
+      },
+      "relation": "identifier",
+      "object": {
+        "type": "identity",
+        "key": "1"
       }
     }
   ]
