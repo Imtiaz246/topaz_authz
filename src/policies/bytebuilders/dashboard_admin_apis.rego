@@ -14,19 +14,19 @@ visible {
     enable
 }
 
-#isBackendDeveloper {
-#    ds.relation({
-#        "object": {
-#            "key": "appscode-backend-team",
-#            "type": "group"
-#        },
-#        "realtion": {
-#            "name": "member",
-#            "object_type": "group"
-#        },
-#        "subject": {
-#            "key": input.user.key,
-#            "type": input.user.type
-#        }
-#    })
-#}
+isBackendDeveloper {
+    ds.relation({
+        "object": {
+            "key": input.user.key,
+            "type": input.user.type
+        },
+        "relation": {
+            "name": "editor",
+            "object_type": "bytebuilders.organization"
+        },
+        "subject": {
+            "key": "test_org",
+            "type": "bytebuilders.organization"
+        }
+    })
+}

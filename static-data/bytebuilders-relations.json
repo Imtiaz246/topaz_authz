@@ -22,7 +22,6 @@
         "key": "appscode-backend-team"
       }
     },
-
     {
       "subject": {
         "type": "user",
@@ -32,6 +31,17 @@
       "object": {
         "type": "identity",
         "key": "1"
+      }
+    },
+    {
+      "subject": {
+        "type": "bytebuilders.organization",
+        "key": "test_org"
+      },
+      "relation": "editor",
+      "object": {
+        "type": "user",
+        "key": "imtiaz@appscode.com"
       }
     }
   ]

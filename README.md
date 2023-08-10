@@ -142,3 +142,24 @@
 3. An object is identified by the combination of `object-type` and `object-key`
 4. A relation type is uniquely identified by the combination of `object-type-name` and `relation-name`
         
+
+# Working process
+There are mainly 2 services exposed to used in topaz.
+   1. Authorizer service
+   2. Directory service
+
+### 1. Create policy
+To create policy and manage policy lifecycle we can use `policy CLI`.
+- Create a policy template
+  - `policy template apply policy-template`
+- Write some relevant policy 
+- You can Add a CI template
+  - `policy templates apply github`
+- Build your OCI image
+  - `policy build . -t <tag>`
+- Push your image to policy registry (ex: `ghcr.io`)
+  - `policy push <registry>/<organization-name>/<repository-name>:<tag>`
+
+### 2. Update with the policy in your topaz service
+- `topaz configure -n <policy-name> -d -s -r <resource-url>`
+- run the topaz

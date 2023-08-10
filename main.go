@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"github.com/aserto-dev/go-aserto/client"
 	"github.com/aserto-dev/go-aserto/middleware"
 	mh "github.com/aserto-dev/go-aserto/middleware/http/macaron"
@@ -179,6 +180,170 @@ func createDummyObjectsAndRelations(client authz.AuthorizerClient, reader dir_re
 	if err != nil {
 		return err
 	}
+
+	// create organization type
+	//newOrganizationTypeObject := &dir_apis.ObjectType{
+	//	Name:        "bytebuilders.organization",
+	//	DisplayName: "organization",
+	//	IsSubject:   true,
+	//	Schema: &structpb.Struct{
+	//		Fields: map[string]*structpb.Value{
+	//			"addedBy": {
+	//				Kind: &structpb.Value_StringValue{
+	//					StringValue: "appscode@appscode.com",
+	//				},
+	//			},
+	//			"isAdmin": {
+	//				Kind: &structpb.Value_BoolValue{
+	//					BoolValue: true,
+	//				},
+	//			},
+	//		},
+	//	},
+	//}
+	//a, err := writer.SetObjectType(context.Background(), &dir_writer.SetObjectTypeRequest{
+	//	ObjectType: newOrganizationTypeObject,
+	//})
+	//fmt.Println(a)
+	//
+	//if err != nil {
+	//	return err
+	//}
+	//
+	//newOrganizationTypeObjectOwnerRelation := &dir_apis.RelationType{
+	//	Name:        "owner",
+	//	DisplayName: "organization owner",
+	//	ObjectType:  "bytebuilders.organization",
+	//	Unions:      []string{"editor", "viewer"},
+	//	Permissions: []string{"can.delete"},
+	//}
+	//
+	//b, err := writer.SetRelationType(context.Background(), &dir_writer.SetRelationTypeRequest{
+	//	RelationType: newOrganizationTypeObjectOwnerRelation,
+	//})
+	//
+	//fmt.Println(b)
+	//
+	//if err != nil {
+	//	return err
+	//}
+	//
+	//newOrganizationTypeObjectEditorRelation := &dir_apis.RelationType{
+	//	Name:        "editor",
+	//	DisplayName: "organization editor",
+	//	ObjectType:  "bytebuilders.organization",
+	//	Unions:      []string{"viewer"},
+	//	Permissions: []string{"can.create", "can.edit"},
+	//}
+	//
+	//if err != nil {
+	//	return err
+	//}
+	//
+	//c, err := writer.SetRelationType(context.Background(), &dir_writer.SetRelationTypeRequest{
+	//	RelationType: newOrganizationTypeObjectEditorRelation,
+	//})
+	//
+	//fmt.Println(c)
+	//
+	//if err != nil {
+	//	return err
+	//}
+	//
+	//newOrganizationTypeObjectViewerRelation := &dir_apis.RelationType{
+	//	Name:        "viewer",
+	//	DisplayName: "organization owner",
+	//	ObjectType:  "bytebuilders.organization",
+	//	Permissions: []string{"can.read"},
+	//}
+	//
+	//d, err := writer.SetRelationType(context.Background(), &dir_writer.SetRelationTypeRequest{
+	//	RelationType: newOrganizationTypeObjectViewerRelation,
+	//})
+	//
+	//fmt.Println(d)
+	//
+	//if err != nil {
+	//	return err
+	//}
+	//
+	//newOrganizationTypeObjectIdentifierRelation := &dir_apis.RelationType{
+	//	Name:        "identifier",
+	//	DisplayName: "organization identifier",
+	//	ObjectType:  "bytebuilders.organization",
+	//}
+	//
+	//e, err := writer.SetRelationType(context.Background(), &dir_writer.SetRelationTypeRequest{
+	//	RelationType: newOrganizationTypeObjectIdentifierRelation,
+	//})
+	//
+	//fmt.Println(e)
+	//if err != nil {
+	//	return err
+	//}
+
+	// test get object
+	result, err := reader.GetObject(context.Background(), &dir_reader.GetObjectRequest{
+		Param: &dir_apis.ObjectIdentifier{
+			Key:  newTypeStringAddr("test_org"),
+			Type: newTypeStringAddr("bytebuilders.organization"),
+		},
+	})
+
+	fmt.Println(result)
+	if err != nil {
+		return err
+	}
+
+	// check relation
+	result1, err := reader.CheckRelation(context.Background(), &dir_reader.CheckRelationRequest{
+		Subject: &dir_apis.ObjectIdentifier{
+			Type: newTypeStringAddr("user"),
+			Key:  newTypeStringAddr("imtiaz@appscode.com"),
+		},
+		Relation: &dir_apis.RelationTypeIdentifier{
+			ObjectType: newTypeStringAddr("group"),
+			Name:       newTypeStringAddr("member"),
+		},
+
+		Object: &dir_apis.ObjectIdentifier{
+			Type: newTypeStringAddr("group"),
+			Key:  newTypeStringAddr("appscode-backend-team"),
+		},
+	})
+
+	if err != nil {
+		return err
+	}
+	fmt.Println(result1)
+
+	// test get relation
+	rel, err := reader.GetRelationType(context.Background(), &dir_reader.GetRelationTypeRequest{
+		Param: &dir_apis.RelationTypeIdentifier{
+			ObjectType: newTypeStringAddr("bytebuilders.organization"),
+			Name:       newTypeStringAddr("editor"),
+		},
+	})
+
+	if err != nil {
+		return err
+	}
+
+	fmt.Println(rel)
+
+	// get all objects types
+	allObjects, err := reader.GetObjectTypes(context.Background(), &dir_reader.GetObjectTypesRequest{
+		Page: &dir_apis.PaginationRequest{
+			Size:  30,
+			Token: "abc",
+		},
+	})
+
+	if err != nil {
+		return err
+	}
+
+	fmt.Println(allObjects)
 
 	return nil
 }

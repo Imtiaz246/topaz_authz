@@ -1,2 +1,0 @@
-# Aserto Shared Header package
-

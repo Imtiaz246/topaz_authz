@@ -64,6 +64,24 @@
         "properties": {
 
         }
+      },
+
+      {
+        "key": "test_org",
+        "type": "bytebuilders.organization",
+        "displayName": "test_org",
+        "properties": {
+          "name": "test_org"
+        }
+      },
+      {
+        "key": "test_org",
+        "type": "identity",
+        "properties": {
+          "kind": "IDENTITY_KIND_ORG_NAME",
+          "provider": "local",
+          "verified": true
+        }
       }
     ]
 }
