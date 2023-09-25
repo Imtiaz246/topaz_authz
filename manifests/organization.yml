@@ -1,0 +1,28 @@
+# object type (organization)
+organization:
+
+  # object relation (organization:owner)
+  owner:
+    # using union we can include other object relation on the same object type
+    union:
+      - editor
+      - viewer
+    # permissions on relation on object type
+    permissions:
+      - can.delete
+
+
+  # object relation (organization:editor)
+  editor:
+    union:
+      - viewer
+    # permissions on relation on object type
+    permissions:
+      - can.create
+      - can.update
+
+
+  # object relation (organization:viewer)
+  viewer:
+    permissions:
+      - can.read

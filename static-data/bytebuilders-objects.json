@@ -1,0 +1,87 @@
+{
+    "objects": [
+      {
+        "key": "1",
+        "type": "identity",
+        "properties": {
+          "kind": "IDENTITY_KIND_EMAIL",
+          "provider": "local",
+          "verified": true
+        }
+      },
+      {
+        "key": "imtiaz@appscode.com",
+        "type": "user",
+        "displayName": "Imtiaz Cho",
+        "properties": {
+          "email": "imtiaz@appscode.com",
+          "isAdmin": true,
+          "status": "USER_STATUS_ACTIVE"
+        }
+      },
+      {
+        "key": "rokibul@appscode.com",
+        "type": "identity",
+        "properties": {
+          "kind": "IDENTITY_KIND_EMAIL",
+          "provider": "local",
+          "verified": true
+        }
+      },
+      {
+        "key": "rokibul@appscode.com",
+        "type": "user",
+        "displayName": "Rokibul Hasan",
+        "properties": {
+          "email": "rokibul@appscode.com",
+          "isAdmin": "false",
+          "status": "USER_STATUS_ACTIVE"
+        }
+      },
+      {
+        "key": "appscode@appscode.com",
+        "type": "identity",
+        "properties": {
+          "kind": "IDENTITY_KIND_EMAIL",
+          "provider": "local",
+          "verified": true
+        }
+      },
+      {
+        "key": "appscode@appscode.com",
+        "type": "user",
+        "displayName": "appscode",
+        "properties": {
+          "email": "appscode@appscode.com",
+          "isAdmin": true,
+          "status": "USER_STATUS_ACTIVE"
+        }
+      },
+      {
+        "key": "appscode-backend-team",
+        "type": "group",
+        "displayName": "b3-backend",
+        "properties": {
+
+        }
+      },
+
+      {
+        "key": "test_org",
+        "type": "bytebuilders.organization",
+        "displayName": "test_org",
+        "properties": {
+          "name": "test_org"
+        }
+      },
+      {
+        "key": "test_org",
+        "type": "identity",
+        "properties": {
+          "kind": "IDENTITY_KIND_ORG_NAME",
+          "provider": "local",
+          "verified": true
+        }
+      }
+    ]
+}

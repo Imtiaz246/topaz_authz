@@ -1,0 +1,48 @@
+{
+  "relations": [
+    {
+      "subject": {
+        "type": "user",
+        "key": "imtiaz@appscode.com"
+      },
+      "relation": "member",
+      "object": {
+        "type": "group",
+        "key": "appscode-backend-team"
+      }
+    },
+    {
+      "subject": {
+        "type": "user",
+        "key": "rokibul@appscode.com"
+      },
+      "relation": "member",
+      "object": {
+        "type": "group",
+        "key": "appscode-backend-team"
+      }
+    },
+    {
+      "subject": {
+        "type": "user",
+        "key": "imtiaz@appscode.com"
+      },
+      "relation": "identifier",
+      "object": {
+        "type": "identity",
+        "key": "1"
+      }
+    },
+    {
+      "subject": {
+        "type": "bytebuilders.organization",
+        "key": "test_org"
+      },
+      "relation": "editor",
+      "object": {
+        "type": "user",
+        "key": "imtiaz@appscode.com"
+      }
+    }
+  ]
+}
